@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>GREEN SAGE | Luxury Living & Furniture – Modern Organic Elegance</title>
+  <!-- Google Fonts: Elegant Serif (Cormorant Garamond) + Clean Sans (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F9F7F4;
+      color: #1F1D1B;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .serif-heading, .logo-text, .hero-title, .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: #1F2A24;
+      letter-spacing: -0.3px;
+    }
+
+    :root {
+      --charcoal: #1E1C1A;
+      --sage: #6C7A5E;
+      --muted-gold: #C4A86B;
+      --soft-ivory: #FDFBF7;
+      --warm-gold-light: #D8B863;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .section-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 22px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(253, 251, 247, 0.92);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(108, 122, 94, 0.12);
+    }
+
+    .circular-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .logo-circle {
+      width: 64px;
+      height: 64px;
+      background-color: #1E1C1A;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease;
+    }
+    .logo-circle:hover {
+      transform: scale(1.02);
+    }
+    .logo-circle::before {
+      content: "🌿";
+      position: absolute;
+      top: -8px;
+      left: -6px;
+      font-size: 24px;
+      opacity: 0.75;
+      transform: rotate(-15deg);
+      color: #6C7A5E;
+    }
+    .logo-circle::after {
+      content: "🍃";
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      font-size: 22px;
+      opacity: 0.7;
+      transform: rotate(10deg);
+      color: #6C7A5E;
+    }
+    .logo-text-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #FDFBF7;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .logo-text-sub {
+      font-size: 0.55rem;
+      letter-spacing: 1.2px;
+      font-weight: 400;
+      color: #C4A86B;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+      margin-top: 2px;
+    }
+    .gold-accent {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(196, 168, 107, 0.6);
+      border-top-color: transparent;
+      border-right-color: transparent;
+      transform: rotate(45deg);
+      pointer-events: none;
+      top: -2px;
+      left: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: #2C2A28;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--muted-gold);
+    }
+    @media (max-width: 800px) {
+      .navbar {
+        padding: 18px 28px;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .nav-links a {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+    }
+    @media (max-width: 650px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .hero {
+      height: 95vh;
+      width: 100%;
+      position: relative;
+      background: url('https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(30,28,26,0.25) 0%, rgba(0,0,0,0.45) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 24px;
+      animation: fadeUp 1s ease-out;
+    }
+    .hero-title {
+      font-size: 4.5rem;
+      font-weight: 600;
+      color: #FDFBF7;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      letter-spacing: -0.5px;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      color: #E9DDBD;
+      margin-top: 1rem;
+      font-weight: 300;
+    }
+    .btn-gold {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      background: transparent;
+      border: 1px solid var(--muted-gold);
+      color: var(--soft-ivory);
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: all 0.4s;
+    }
+    .btn-gold:hover {
+      background: var(--muted-gold);
+      color: #1E1C1A;
+      border-color: var(--muted-gold);
+      transform: translateY(-3px);
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(35px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(108,122,94,0.1);
+    }
+    .section-subhead {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem auto;
+      color: #5C5A57;
+      font-weight: 300;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-img img {
+      width: 100%;
+      border-radius: 32px;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.1);
+      transition: transform 0.5s;
+    }
+    .about-text h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #2C3A2A;
+    }
+    .gold-accent-line {
+      width: 70px;
+      height: 2px;
+      background: var(--muted-gold);
+      margin: 1.5rem 0 1rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+    .product-card {
+      background: #FFFDF9;
+      transition: all 0.3s;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .product-card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: transform 0.5s;
+      border-radius: 20px;
+    }
+    .product-card:hover img {
+      transform: scale(1.02);
+    }
+    .product-info {
+      padding: 1rem 0.5rem;
+    }
+    .product-info h4 {
+      font-size: 1.4rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+    }
+    .artisan-tag {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin: 0.3rem 0;
+    }
+    .price {
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-top: 0.4rem;
+    }
+
+    .botanical-icon {
+      color: var(--sage);
+      font-size: 1.6rem;
+      margin-right: 0.4rem;
+    }
+    .services-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .service-card {
+      flex: 1;
+      background: #FEFCF9;
+      padding: 2rem;
+      border-radius: 28px;
+      transition: 0.3s;
+      border: 1px solid #EBE5DA;
+    }
+    .service-card:hover {
+      border-color: var(--muted-gold);
+      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
+    }
+    .service-card i {
+      font-size: 2rem;
+      color: var(--muted-gold);
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem;
+      background: #FEFBF6;
+      border-radius: 48px;
+    }
+    .testimonial-text {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+
+    .contact-form {
+      background: #FFFFFF;
+      padding: 2.5rem;
+      border-radius: 36px;
+      box-shadow: 0 20px 30px -18px rgba(0,0,0,0.05);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #E2D9CF;
+      border-radius: 16px;
+      font-family: 'Inter', sans-serif;
+      transition: 0.2s;
+    }
+    input:focus, select:focus {
+      border-color: var(--muted-gold);
+      outline: none;
+    }
+    .btn-submit {
+      background: var(--charcoal);
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 40px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .btn-submit:hover {
+      background: var(--muted-gold);
+      color: #1E1C1A;
+    }
+
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      color: #6A675F;
+      border-top: 1px solid #E8E2D8;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero {
+      background-attachment: fixed;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        background-attachment: scroll;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="circular-logo">
+    <div class="logo-circle">
+      <div class="gold-accent"></div>
+      <div class="logo-text-main">GREEN<br>SAGE</div>
+      <div class="logo-text-sub">Living & Furniture</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Ethos</a></li>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Inquire</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <div class="hero-title">Organic Modernism</div>
+    <div class="hero-sub">Where earthy elegance meets contemporary African soul</div>
+    <a href="#collection" class="btn-gold">Discover the Edit <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+  </div>
+</section>
+
+<section id="about" class="container fade-in">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="https://images.pexels.com/photos/5099229/pexels-photo-5099229.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Luxury interior with sage accents">
+    </div>
+    <div class="about-text">
+      <div class="gold-accent-line"></div>
+      <h3>Quiet Luxury, sculpted by nature</h3>
+      <p>GREEN SAGE is a sanctuary for design purists — a boutique furniture atelier inspired by the rhythm of Nairobi and the calm of Scandinavian minimalism. Every piece is curated with intention: warm charcoal textures, muted sage botanicals, and sculptural silhouettes.</p>
+      <p><i class="fas fa-leaf botanical-icon"></i> We collaborate with master artisans, blending contemporary African elegance with timeless serenity. Step into a showroom where each object feels collected, not bought.</p>
+    </div>
+  </div>
+</section>
+
+<section id="collection" class="container fade-in">
+  <h2 class="section-title">The Curated Collection</h2>
+  <div class="section-subhead">Hand-selected · Artisan crafted · Timeless silhouettes</div>
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="https://images.pexels.com/photos/2110783/pexels-photo-2110783.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sage armchair">
+      <div class="product-info">
+        <h4>"Moss" Lounge Chair</h4>
+        <div class="artisan-tag"><i class="fas fa-seedling"></i> Organic bouclé + oak</div>
+        <p>Deep sage fabric, curved silhouette — inspired by forest calm.</p>
+        <div class="price">POA / Bespoke Inquiry</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.pexels.com/photos/1571466/pexels-photo-1571466.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Charcoal console">
+      <div class="product-info">
+        <h4>Eclipse Console</h4>
+        <div class="artisan-tag"><i class="fas fa-leaf"></i> Charcoal oak, brass inlay</div>
+        <p>Matte black finish, gold curved accents, minimalist geometry.</p>
+        <div class="price">Inquire for pricing</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.pexels.com/photos/2528118/pexels-photo-2528118.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Botanical side table">
+      <div class="product-info">
+        <h4>Nairobi Stool</h4>
+        <div class="artisan-tag"><i class="fas fa-pagelines"></i> Hand carved shedua</div>
+        <p>Organic sculptural form, natural wood essence.</p>
+        <div class="price">Exclusive curation</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="#contact" class="btn-gold" style="background: var(--charcoal); color: white; border: none;">Request Lookbook →</a>
+  </div>
+</section>
+
+<section id="services" class="container fade-in">
+  <h2 class="section-title">Design Concierge</h2>
+  <div class="services-flex">
+    <div class="service-card">
+      <i class="fas fa-couch"></i>
+      <h3>Interior Curation</h3>
+      <p>Full-space styling, furniture sourcing, and custom mood boards by our lead designer.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-palette"></i>
+      <h3>Bespoke Atelier</h3>
+      <p>Collaborate with artisans to create one-of-a-kind furniture with sage & gold accents.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-store"></i>
+      <h3>Private Showroom</h3>
+      <p>By appointment only — an immersive luxury experience in Nairobi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container fade-in">
+  <div class="testimonial-card">
+    <i class="fas fa-quote-left" style="color: var(--muted-gold); font-size: 2rem; opacity: 0.7;"></i>
+    <div class="testimonial-text">"An immersive experience — GREEN SAGE translated my vision into a sanctuary of quiet grandeur. The botanical touches and charcoal backdrop feel revolutionary."</div>
+    <p style="margin-top: 1rem;">— L. Adhiambo, Runda</p>
+  </div>
+</section>
+
+<section id="contact" class="container fade-in">
+  <h2 class="section-title">Begin Your Design Journey</h2>
+  <div class="contact-form">
+    <form id="premiumForm">
+      <input type="text" placeholder="Full name" required>
+      <input type="email" placeholder="Email address" required>
+      <select>
+        <option>Interior Consultation</option>
+        <option>Furniture Curation</option>
+        <option>Private Showroom Visit</option>
+      </select>
+      <select>
+        <option>Budget: Confidential Inquiry</option>
+        <option>$40k – $80k</option>
+        <option>$80k – $150k</option>
+        <option>$150k+</option>
+      </select>
+      <textarea rows="2" placeholder="Tell us about your vision..."></textarea>
+      <button type="submit" class="btn-submit">Send Inquiry →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p><i class="fas fa-leaf" style="color: #6C7A5E;"></i> GREEN SAGE · Nairobi · Living & Furniture Atelier</p>
+  <p style="margin-top: 0.5rem;">Timeless interiors, organic soul — by appointment only</p>
+</footer>
+
+<script>
+  const fadeElements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeElements.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.nav-links a, .btn-gold, a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== "#" && targetId.startsWith("#")) {
+        const targetElem = document.querySelector(targetId);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 20) {
+      navbar.style.backgroundColor = 'rgba(253, 251, 247, 0.96)';
+      navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.02)';
+    } else {
+      navbar.style.backgroundColor = 'rgba(253, 251, 247, 0.92)';
+    }
+  });
+
+  const form = document.getElementById('premiumForm');
+  if(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you — a design atelier specialist will reach out within 24h to begin your journey with GREEN SAGE.');
+      form.reset();
+    });
+  }
+</script>
+</body>
+</html>
